@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar el empleado</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <% if(data) { %>
+    <div class="empleadoNuevo-page">
+        <div class="empleadoNuevo-form-box">
+            <div class="exit-button-container">
+                <a href="/empleado" class="exit-button"><button><span class="material-symbols-outlined">close</span></button></a>
+            </div>
+            <div class="form-box">
+                <form action="/actualizarEmpleado" method="post">
+                    <input type="text" name="id" id="id" value="<%= data.id_empleado %>" hidden>
+                    <div>
+                        <label for="" class="label-empleadoNuevo">NOMBRE DE EMPLEADO: <span class="required">*</span></label>
+                        <input type="text" name="nom_emp" id="nom_emp" required value="<%= data.nombre_empleado %>">
+                    </div>
+                    <div>
+                        <label for="" class="label-empleadoNuevo">NO. EMPLEADO: <span class="required">*</span></label>
+                        <input type="text" name="num_emp" id="num_emp" maxlength="4" required value="<%= data.no_empleado %>">    
+                    </div>
+                    <div>
+                        <label for="" class="label-empleadoNuevo">AREA: <span class="required">*</span></label>
+                        <input type="text" name="area_emp" id="area_emp" required value="<%= data.area %>">    
+                    </div>
+                    <div>
+                        <label for="" class="label-empleadoNuevo">ESTADO EMPLEADO:</label>
+                        <select name="est_emp" id="est_emp">
+                            <option <%= data.estado_empleado=='1' ? "selected" : '' %> value="1">ACTIVO</option>
+                            <option <%= data.estado_empleado=='0' ? "selected" : '' %> value="0">BAJA</option>
+                        </select><br>
+                    </div>
+                    <div class="button-box-empleadoNuevo">
+                        <button type="submit" class="guardar-button">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del inventario</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body> 
+    <div class="detalles-site-page">  
+        <div class="detalles-site-box">
+            <div class="exit-site-detalles">
+                <a href="/"><span class="material-symbols-outlined" style="font-size: 30px;">close</span></a>
+            </div>
+            <div class="site-form">
+                <% if(data) { %>
+                <table border="1px">
+                    <tr><th>NOMBRE DE EMPLEADO</th><td><%= data.nombre_empleado %></td></tr>
+                    <tr><th>NÚMERO DE EMPLEADO</th><td><%= data.no_empleado %></td></tr>
+                    <tr><th>AREA</th><td><%= data.area %></td></tr>
+                    <tr><th>FECHA DE ASIGNACIÓN</th><td><%= data.fecha_asignacion %></td></tr>
+                    <tr><th>TIPO DE EQUIPO</th><td><%= data.tipo_equipo %></td></tr>
+                    <tr><th>MARCA</th><td><%= data.marca %></td></tr>
+                    <tr><th>MODELO</th><td><%= data.modelo %></td></tr>
+                    <tr><th>NÚMERO DE SERIE</th><td><%= data.no_serie %></td></tr>
+                    <tr><th>SISTEMA OPERATIVO</th><td><%= data.sistema_operativo %></td></tr>
+                    <tr><th>PROPIETARIO</th><td><%= data.propietario %></td></tr>
+                    <tr><th>LÍNEA TELEFÓNICA</th><td><%= data.linea_telefonica %></td></tr>
+                    <tr><th>PIN</th><td><%= data.pin %></td></tr>
+                    <tr><th>IMEI</th><td><%= data.imei %></td></tr>
+                    <tr><th>CUENTA DE GOOGLE</th><td><%= data.cuenta_google %></td></tr>
+                    <tr><th>CONTRASEÑA</th><td><%= data.password_cuenta %></td></tr>
+                    <tr><th>FECHA DE COMPRA</th><td><%= data.fecha_compra %></td></tr>
+                    <tr><th>FECHA DE RENOVACION</th><td><%= data.fecha_renovacion %></td></tr>
+                    <tr><th>COMENTARIO</th><td><%= data.comentario %></td></tr>
+                </table>
+                <% } %>
+            </div>
+        </div>  
+    </div>
+</body>
+</html> 

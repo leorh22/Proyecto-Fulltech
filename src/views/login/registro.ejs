@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="login-page">
+        <img src="/img/fulltech-logo2.jpg" alt="fulltech-logo">
+        <div class="form-login-box">
+            <p id="login-title">Registrar usuario</p>
+            <form action="/registrarUsuario" method="post">
+                <label for="">NOMBRE DE USUARIO: <span class="required">*</span></label>
+                <input type="text" name="nombre" id="nombre" placeholder="INGRESA UN NOMBRE DE USUARIO" required>
+
+                <label for="">CORREO ELECTRÓNICO: <span class="required">*</span></label>
+                <input type="text" name="correo_electronico" id="correo_electronico" placeholder="INGRESA TU CORREO ELECTRÓNICO" required>
+
+                <label for="">CONTRASEÑA: <span class="required">*</span></label>
+                <input type="password" name="password_admin" id="password_admin" placeholder="INGRESA TU CONTRASEÑA" required>
+                
+                <!-- <button type="submit"><a href="/login">Guardar</a></button>-->  
+                <div class="btnes-inferiores-registro">
+                    <a href="/login" class="btn-registro-admin-cancelar"><div>Cancelar</div></a>
+                    <input type="submit" class="btn-registro-admin-guardar" value="Guardar">
+                </div>
+            </form>
+        </div>
+        <%- include('../templates/footer') %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>', 
+                text: '<%= alertMessage %>', 
+                icon: '<%= alertIcon %>', 
+                timer: '<%= timer %>'
+            }).then(() => {
+                window.location = '/login'
+            });
+        </script>
+    <% } %>
+</body>
+</html>

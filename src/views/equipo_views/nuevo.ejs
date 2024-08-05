@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo equipo</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="equipo-page">
+        <div class="equipo-nuevo-form">
+            <div class="close-box-equipo">
+                <a href="/equipo"><span class="material-symbols-outlined" style="font-size: 35px;">close</span></a>
+            </div>
+            <div>
+                <form action="/insertarDatosEquipo" method="post">
+                    <div>
+                        <label for="tipo_equipo">TIPO DE EQUIPO: <span class="required">*</span></label>
+                        <select name="tipo_equipo" id="tipo_equipo" name="tipo_equipo">
+                            <option value="LAPTOP">LAPTOP</option>
+                            <option value="DESKTOP">DESKTOP</option>
+                            <option value="CELULAR">CELULAR</option>
+                            <option value="RADIO">RADIO</option>
+                            <option value="MOUSE">MOUSE</option>
+                            <option value="TECLADO">TECLADO</option>
+                            <option value="MONITOR">MONITOR</option>
+                            <option value="OTRO">OTRO</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="marca_equipo"><p>MARCA: <span class="required">*</span></label>
+                        <input type="text" name="marca_equipo" id="marca_equipo" required>
+                    </div>
+                    <div>
+                        <label for="modelo_equipo">MODELO: <span class="required">*</span></label>
+                        <input type="text" name="modelo_equipo" id="modelo_equipo" required>
+                    </div>
+                    <div>
+                        <label for="no_serie">NÚMERO DE SERIE: <span class="required">*</span></label>
+                        <input type="text" name="no_serie" id="no_serie" required>
+                    </div>
+                    <div>
+                        <label for="sistema_operativo">SISTEMA OPERATIVO:</label>
+                        <input type="text" name="sistema_operativo" id="sistema_operativo">
+                    </div>
+                    <div>
+                        <label for="propietario_equipo">PROPIETARIO:</label>
+                        <input type="text" name="propietario_equipo" id="propietario_equipo">
+                    </div>
+                    <div>
+                        <label for="linea_telefonica">LINEA TELEFÓNICA:</label>
+                        <input type="text" name="linea_telefonica" id="linea_telefonica">
+                    </div>
+                    <div>
+                        <label for="pin_equipo">PIN:</label>
+                        <input type="text" name="pin_equipo" id="pin_equipo">
+                    </div>
+                    <div>
+                        <label for="imei_equipo">IMEI:</label>
+                        <input type="text" name="imei_equipo" id="imei_equipo">
+                    </div>
+                    <div>
+                        <label for="cuenta_google">CUENTA GOOGLE:</label>
+                        <input type="text" name="cuenta_google" id="cuenta_google">
+                    </div>
+                    <div>
+                        <label for="pass">CONTRASEÑA CUENTA:</label>
+                        <input type="text" name="pass" id="pass">
+                    </div>
+                    <div>
+                        <label for="fecha_compra">FECHA COMPRA:</label>
+                        <input type="date" name="fecha_compra" id="fecha_compra">
+                    </div>
+                    <div>
+                        <label for="fecha_renovacion">FECHA RENOVACIÓN:</label>
+                        <input type="date" name="fecha_renovacion" id="fecha_renovacion">
+                    </div>
+                    <div>
+                        <label for="estado_equipo">ESTADO EQUIPO</label>
+                        <select name="estado_equipo" id="estado_equipo">
+                            <option value="1">ACTIVO</option>
+                            <option value="0">BAJA</option>
+                        </select>
+                    </div>
+                    <div class="guardar-box-equipo">
+                        <button type="submit" class="guardar-equipo">GUARDAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!--
+    <script>
+        import Quagga from 'quagga';
+        const Quagga = require('quagga').default;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const scannerContainer = document.getElementById('scanner-container');
+            
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: scannerContainer,
+                    constraints: {
+                        width: 640,
+                        height: 480,
+                        facingMode: "environment"
+                    }
+                },
+                decoder: {
+                    readers: [
+                        "code_128_reader", "ean_reader", "ean_8_reader", 
+                        "code_39_reader", "code_39_vin_reader", "codabar_reader", 
+                        "upc_reader", "upc_e_reader", "i2of5_reader", 
+                        "2of5_reader", "code_93_reader"
+                    ]
+                }
+            }, function(err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function(result) {
+                if (result.codeResult.code) {
+                    document.getElementById('no_serie').value = result.codeResult.code;
+                }
+            });
+        });
+    </script>-->
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar inventario</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <% if (data) { %>
+    <div class="nuevo-inventarioGeneral-page">
+        <div class="inventarioGeneral-container">
+            <div class="exit-inventarioGeneral-nuevo">
+                <a href="/"><span class="material-symbols-outlined" style="font-size: 35px;">close</span></a>
+            </div>
+            <div>
+                <form action="/actualizarRegistro" method="post">
+                    <input type="hidden" name="id_registro" value="<%= data.id_registro %>">
+                    <div>
+                        <label for="fecha_asignacion">FECHA DE ASIGNACIÓN: <span class="required">*</span></label>
+                        <input type="date" name="fecha_asignacion" id="fecha_asignacion" value="<%= data.fecha_asignacion %>">
+                    </div>
+                    <div>
+                        <label for="id_empleado1">ID EMPLEADO: <span class="required">*</span></label>
+                        <input type="text" name="id_empleado1" id="id_empleado1" value="<%= data.id_empleado1 %>" required>
+                    </div>
+                    <div>
+                        <label for="id_equipo1">ID EQUIPO: <span class="required">*</span></label>
+                        <input type="text" name="id_equipo1" id="id_equipo1" value="<%= data.id_equipo1 %>" required>
+                    </div>
+                    <div>
+                        <label for="comentario">COMENTARIO:</label>
+                        <input type="text" name="comentario" id="comentario" value="<%= data.comentario %>" required>
+                    </div>
+                    <div class="guardar-box-inventarioGeneral">
+                        <button type="submit" class="guardar-registro">GUARDAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</body>
+</html>

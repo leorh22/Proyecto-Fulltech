@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva licencia</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="equipo-page">
+        <div class="equipo-nuevo-form">
+            <div class="close-box-equipo">
+                <a href="/licencia"><span class="material-symbols-outlined" style="font-size: 35px;">close</span></a>
+            </div>
+            <div>
+                <form action="/insertarDatosLicencia" method="post">
+                    <div>
+                        <label for="">NOMBRE: <span class="required">*</span></label>
+                        <input type="text" name="nombre" id="nombre" required>
+                    </div>
+                    <div>
+                        <label for="">TIPO DE LICENCIA:</label>
+                        <select name="tipo_licencia" id="tipo_licencia">
+                            <option value="FISÍCA">FISICA</option>
+                            <option value="DIGITAL">DIGITAL</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">KEYCODE: <span class="required">*</span></label>
+                        <input type="text" name="keycode" id="keycode">
+                    </div>
+                    <div>
+                        <label for="">FECHA DE COMPRA:</label>
+                        <input type="date" name="fecha_compra" id="fecha_compra">
+                    </div>
+                    <div>
+                        <label for="">FECHA DE RENOVACIÓN:</label>
+                        <input type="date" name="fecha_renovacion" id="fecha_renovacion">
+                    </div>
+                    <div>
+                        <label for="">PROVEEDOR: <span class="required">*</span></label>
+                        <input type="text" name="proveedor" id="proveedor">
+                    </div>
+                    <div>
+                        <label for="">ID. EQUIPO ASIGNADO: <span class="required">*</span></label>
+                        <input type="text" name="id_equipo2" id="id_equipo2" required> 
+                    </div>
+                    <div>
+                        <label for="">COMENTARIO:</label>
+                        <input type="text" name="comentario" id="comentario">
+                    </div>
+                    <div class="guardar-box-equipo">
+                        <button type="submit" class="guardar-equipo">GUARDAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

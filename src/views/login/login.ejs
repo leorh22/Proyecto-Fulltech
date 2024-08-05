@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="login-page">
+        <img src="/img/fulltech-logo2.jpg" alt="fulltech-logo">
+        <div class="form-login-box">
+            <p id="login-title">LOGIN</p>
+            <form action="/auth" method="post">
+                <label for="">CORREO ELECTRÓNICO:</label>
+                <input type="text" name="correo_electronico" id="correo_electronico" placeholder="INGRESA TU CORREO ELECTRÓNICO">
+                <label for="">CONTRASEÑA:</label>
+                <input type="password" name="password_admin" id="password_admin" placeholder="INGRESA TU CONTRASEÑA">
+                <button type="submit" style="color: white; cursor: pointer;">LOGIN</button>  
+            </form>
+            <div class="forgot-password"> 
+                <p>Nuevo usuario <a href="/registrar">Registrarse</a></p> 
+            </div>
+        </div>
+        <%- include('../templates/footer') %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>', 
+                text: '<%= alertMessage %>', 
+                icon: '<%= alertIcon %>', 
+                timer: '<%= timer %>'
+            }).then(() => {
+                window.location = '/<%= ruta %>'
+            });
+        </script>
+    <% } %>
+</body>
+</html>

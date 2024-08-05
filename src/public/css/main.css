@@ -1,0 +1,901 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+body {
+    background-color: #E6E6E6;
+}
+
+a {
+    text-decoration: none;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+.required {
+    color: red;
+    margin-left: 2px;
+}
+
+.header {
+    color: black;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.header .logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #E6E6E6;
+    width: 15%;
+    padding: 20px;
+}
+
+.header .current-logged-join {
+    display: flex;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    width: 85%;
+    height: 60px;
+    background-color: white;
+}
+
+.header .current-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: black;
+}
+
+.header .logged-user {
+    display: flex;
+    margin-left: auto;
+}
+
+.username-box {
+    display: flex;
+    margin-left: auto;
+    width: 350px;
+    align-items: center;
+    justify-content: end;
+    font-size: 18px;
+    color: black;
+}
+
+.user-box {
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: end;
+    margin: 15px;
+}
+
+.user-box :hover {
+    color: red;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0s ease 0.1s;
+}
+
+#btn-exportar :hover {
+    color: #21a366;
+    cursor: pointer;
+    transition: all 0.1s ease 0.1s;
+}
+
+.big-box {
+    display: flex;
+    height: 100%;
+}
+
+.menu {
+    background: #005A9E;
+    width: 15%;
+    height: 100vh;
+}
+
+.lista-menu {
+    list-style-type: none;
+}
+
+.button:hover {
+    background-color: #3D8AF7;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.5s ease 0s;
+}
+
+.button {
+    background-color: #005A9E;
+    width: 100%;
+    height: 70px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#site {
+    border-top: 2px solid #E6E6E6;
+    border-bottom: 2px solid #E6E6E6;
+}
+
+#empleado {
+    border-bottom: 2px solid #E6E6E6;    
+}
+
+#software {
+    border-bottom: 2px solid #E6E6E6;
+}
+
+.simple-box {
+    width: 85%;
+    padding: 15px;
+    height: auto;
+}
+
+.barra-acciones {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: end;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.buscar {
+    margin-right: 30px;
+}
+
+#barra-buscar {
+    height: 40px;
+    width: 280px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+#barra-buscar-equipo {
+    height: 40px;
+    width: 280px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #000;
+    margin-left: 1000px;
+}
+
+.btn-agregar {
+    display: flex;
+    width: 135px;
+    height: 40px;
+    color: white;
+    background-color: #005A9E;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-agregar:hover {
+    background-color: rgb(61, 153, 233);
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+.btn-mostrar-equipo {
+    display: flex;
+    width: 135px;
+    height: 40px;
+    color: white;
+    background-color: #E61610;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-mostrar-equipo:hover {
+    background-color: #f04944;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+.btn-generar-excel{
+    display: flex;
+    width: 135px;
+    height: 40px;
+    color: white;
+    background-color: #20a164;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-generar-excel:hover {
+    background-color: #31c480;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+/*Diseño de las tablas y sus elementos*/
+
+.tablas {
+    width: 100%;
+    /*display: inline-block;
+    overflow: auto;*/
+    height: 75vh;
+    overflow-y: auto;
+    background-color: white;
+    padding: 15px;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 2px solid #D6D6D6;
+    text-align: center;
+}
+
+th {
+    background-color: #D6D6D6;
+    font-size: 12px;
+    padding: 4px;
+}
+
+td {
+    font-size: 11px;
+    padding: 2px;
+}
+
+.action-btn{
+    height: 25px;
+    width: 30px;
+    color: white;
+    border: none;
+    align-items: center;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 40
+}
+
+.ver-btn {
+    color: #72BB53;
+}
+
+.editar-btn {
+    color: #00A4D3;
+}
+
+.eliminar-btn {
+    color: #E61610;
+}
+
+.action-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont-principal-nuevo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.cont_form_nuevo {
+    display: flex;
+    width: 80%;
+    height: 90%;
+    background-color: white;
+    border: 2px solid #000;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+/*Diseño de la pagina de login*/
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-page img {
+    height: 70px;
+    width: 240px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.form-login-box {
+    background-color: white;
+    height: auto;
+    width: 30%;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+#login-title {
+    margin-bottom: 30px;
+    font-size: 36px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-login-box label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-login-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login-box input {
+    border: 1px solid #000;
+    border-radius: 3px;
+    height: 4vh;
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.form-login-box button {
+    background-color: #005A9E;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    height: 4vh;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    border-radius: 3px;
+}
+
+.form-login-box button a {
+    color: white;
+}
+
+.forgot-password {
+    display: flex;
+    justify-content: center;
+}
+
+.forgot-password a{
+    color: #007bfc
+}
+
+.footer {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    height: 12vh;
+    width: 100%;
+    background-color: #005A9E;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a {
+    color: white;
+}
+
+.btnes-inferiores-registro {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height:7vh;
+}
+
+.btn-registro-admin-guardar{
+    border: none;
+    margin-left: 20px;
+    cursor: pointer;
+    background-color: #007bfc;  
+    width: 15%;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-registro-admin-cancelar{
+    width: 15%;
+
+}
+
+/* Diseño de la página EMPLEADO - Nuevo */
+
+.empleadoNuevo-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empleadoNuevo-form-box {
+    border: 1px solid #000;
+    width: 33%;
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+.exit-button-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.exit-button-container button {
+    background-color: transparent;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.form-box {
+    padding: 40px 50px 20px 50px;
+}
+
+.form-box label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.empleadoNuevo-form-box input {
+    border: 1px solid #000;
+    height: 4.5vh;
+    width: 100%;
+    border-radius: 2px;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.empleadoNuevo-form-box select {
+    border: 1px solid #000;
+    height: 4.5vh;
+    width: 100%;
+    border-radius: 2px;
+    margin-top: 1.3vh;
+    margin-bottom: 3vh;
+}
+
+.button-box-empleadoNuevo {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.guardar-button {
+    background-color: #3D8AF7;
+    color: white;
+    height: 4.5vh;
+    border: none;
+    border-radius: 3px;
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.guardar-button:hover {
+    background-color: #357ABD;
+}
+
+/* Diseño de la página SITE - Nuevo */
+
+.site-nuevo-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.site-nuevo-form {
+    background-color: white;
+    width: 40%;
+    height: 80vh;
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: relative;
+    padding: 50px;
+    overflow-y: auto;
+}
+
+.exit-site-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.site-form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.site-form input {
+    border: 1px solid #000;
+    padding: 5px;
+    width: 100%;
+    height: 5vh;
+    font-size: 12px;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    border-radius: 2px;
+}
+
+.site-form select {
+    width: 100%;
+    height: 5vh;
+    padding: 5px;
+    font-size: 12px;
+    margin-bottom: 3vh;
+    margin-top: 1.5vh;
+}
+
+.site-guardar-button button {
+    border: none;
+    width: 20%;
+    height: 5vh;
+    background-color: #3D8AF7;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-left: 80%;
+}
+
+.site-guardar-button button:hover {
+    background-color: #357ABD;
+}
+
+.detalles-site-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.detalles-site-box {
+    background-color: white;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    position: absolute;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.exit-site-detalles {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.site-form {
+    margin-top: 10px;
+}
+
+.site-form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.site-form table, th, td {
+    border: 1px solid #ddd;
+}
+
+.site-form th, td {
+    padding: 5px;
+}
+
+.site-form th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.site-form tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Diseño para la página Equipo */
+
+.equipo-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mostrar-equipo-form {
+    background-color: white;
+    border: 1px solid #000;
+    width: 85%;
+    height: 90vh;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.contenedor-regresar-equipo{
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.btn-regresar-equipo {
+    display: flex;
+    align-items: center;
+    width: 35px; /* Ajustar ancho si es necesario */
+    height: 35px; /* Ajustar altura si es necesario */
+}
+
+.barra-busqueda-y-agregar-equipo {
+    display: flex;
+    align-items: center;
+}
+
+.barra-busqueda-equipo {
+    display: flex;
+    justify-content: center;
+}
+
+.equipo-nuevo-form {
+    background-color: white;
+    width: 40%;
+    height: 85vh;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.equipo-nuevo-form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.equipo-nuevo-form input {
+    width: 100%;
+    height: 5vh;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.equipo-nuevo-form select {
+    width: 100%;
+    height: 5vh;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+/* .barra-acciones-equipo {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: end;
+} */
+
+.barra-acciones-equipo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.btn-agregar-equipo {
+    display: flex;
+    width: 135px;
+    height: 40px;
+    color: white;
+    background-color: #005A9E;
+    margin-left: 20px;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-agregar-equipo:hover {
+    background-color: #357ABD;
+}
+
+.close-box-equipo {
+    font-size: 40px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.close-box-equipo a {
+    font-size: 60px;
+    display: flex;
+    justify-content: end;
+}
+
+.guardar-box-equipo {
+    margin-top: 15px;
+    display: flex;
+    justify-content: end;
+}
+
+.guardar-equipo {
+    width: 135px;
+    height: 5vh;
+    background-color: #007bfc;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.guardar-equipo:hover {
+    background-color: rgb(61, 153, 233);
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+/*Diseño de pagina Detalles - Licencia*/
+
+.detalles-licencia-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.licencia-container {
+    background-color: white;
+    width: 40%;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.exit-licencia-detalles {
+    height: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.exit-licencia-detalles span {
+    font-size: 40px;
+}
+
+/* Diseño de la página Nuevo - Inventario General */
+
+.nuevo-inventarioGeneral-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.inventarioGeneral-container{
+    background: white;
+    border-radius: 3px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.exit-inventarioGeneral-nuevo {
+    height: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.inventarioGeneral-container label{
+    font-weight: bold;
+}
+
+.inventarioGeneral-container input{
+    width: 100%;
+    height: 5vh;
+    padding: 5px;
+    margin-top: 1vh;
+    margin-bottom: 1.5vh;
+}
+
+.guardar-box-inventarioGeneral{
+    margin-top: 15px;
+    display: flex;
+    justify-content: end;
+}
+
+.guardar-registro{
+    width: 135px;
+    height: 5vh;
+    background-color: #007bfc;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Diseño de boton de imprimir */
+
+.contenedor-boton-imprimir {
+    margin-top: 2vh;
+    justify-content: end;
+    display: flex;
+    color: white;
+}
+
+.boton-imprimir {
+    background-color: #17A589;
+    color: white;
+    width: auto;
+    height: 4.1vh;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

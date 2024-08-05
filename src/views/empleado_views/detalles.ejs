@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del empleado</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="detalles-licencia-page">
+        <div class="licencia-container">
+            <div class="exit-licencia-detalles">
+                <a href="/empleado"><span class="material-symbols-outlined" style="font-size: 30px;">close</span></a>
+            </div>
+            <div class="licencia-table">
+                <table>
+                    <% if(empleado) { %>
+                        <tr><th>ID. EMPLEADO</th><td style="font-weight: bold; color: red;"><%= empleado.id_empleado %></td></tr>
+                        <tr><th>NOMBRE EMPLEADO</th><td><%= empleado.nombre_empleado %></td></tr>
+                        <tr><th>NO. EMPLEADO</th><td><%= empleado.no_empleado %></td></tr>
+                        <tr><th>ÁREA/PUESTO</th><td><%= empleado.area %></td></tr>
+                        <tr><th>ESTADO EMPLEADO</th>
+                            <td>
+                                <% if(empleado.estado_empleado == 0) { %>
+                                    <b>BAJA</b>
+                                <% } else { %>
+                                        <p>ACTIVO</p>
+                                    <% } %>
+                            </td>
+                        </tr>
+                        <% } else { %>
+                        <tr><td colspan="2">NO SE ENCONTRARON DETALLES PARA ESTE EMPLEADO</td></tr>
+                        <% } %>
+                </table>
+                <div style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; font-size: 14px;">
+                    <p>EQUIPOS ASIGNADOS:</p>
+                </div>
+                <table class="tabla-equipos-empleado">
+                    <thead>
+                        <tr>
+                            <th>TIPO DE EQUIPO</th>
+                            <th>MARCA</th>
+                            <th>MODELO</th>
+                            <th>NO. DE SERIE</th>
+                            <th>FECHA DE ASIGNACIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(equipos.length > 0) { %>
+                            <% equipos.forEach(equipo => { %>
+                                <tr>
+                                    <td><%= equipo.tipo_equipo %></td>
+                                    <td><%= equipo.marca %></td>
+                                    <td><%= equipo.modelo %></td>
+                                    <td><%= equipo.no_serie %></td>
+                                    <td><%= equipo.fecha_asignacion %></td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="5">NO HAY EQUIPOS ASIGNADOS</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contenedor-boton-imprimir">
+                    <button onclick="window.open('/detallesEmpleado/<%= empleado.id_empleado %>/pdf', '_blank')" style="border: none; cursor: pointer;" >
+                        <div class="boton-imprimir"><p>Imprimir </p><span class="material-symbols-outlined">print</span></div>
+                    </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

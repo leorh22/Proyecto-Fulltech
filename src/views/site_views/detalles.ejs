@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del dispositivo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="detalles-site-page">  
+        <div class="detalles-site-box">
+            <div class="exit-site-detalles">
+                <a href="/site"><span class="material-symbols-outlined" style="font-size: 30px;">close</span></a>
+            </div>
+            <div class="site-form">
+                <table border="1px">
+                    <% if(data) { %>
+                    <tr><th>DISPOSITIVO</th><td><%= data.dispositivo %></td></tr>
+                    <tr><th>TIPO DE DISPOSITIVO</th><td><%= data.tipo_dispositivo %></td></tr>
+                    <tr><th>MARCA</th><td><%= data.marca %></td></tr>
+                    <tr><th>MODELO</th><td><%= data.modelo %></td></tr>
+                    <tr><th>NÚMERO DE SERIE</th><td><%= data.no_serie %></td></tr>
+                    <tr><th>ESTADO DEL EQUIPO</th><td><%= data.estado_dispositivo %></td></tr>
+                    <tr><th>COMENTARIO</th><td><%= data.comentario %></td></tr>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

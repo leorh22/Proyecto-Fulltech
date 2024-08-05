@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar equipo</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <% if(data) { %>
+    <div class="equipo-page">
+        <div class="equipo-nuevo-form">
+            <div class="close-box-equipo">
+                <a href="/equipo"><span class="material-symbols-outlined" style="font-size: 35px;">close</span></a>
+            </div>
+            <div>
+                <form action="/actualizarEquipo" method="post">
+                    <input type="text" name="id_equipo" id="id_equipo" value="<%= data.id_equipo %>" hidden>
+                    <div>
+                        <label for="tipo_equipo">TIPO DE EQUIPO:</label>
+                        <!--  <input type="text" name="tipo_equipo" id="tipo_equipo" value="<%= data.tipo_equipo %>"> -->
+                        <select name="tipo_equipo" id="tipo_equipo">
+                            <option <%= data.estado_equipo=='LAPTOP' ? 'selected' : '' %> value="LAPTOP">LATOP</option>
+                            <option <%= data.estado_equipo=='DESKTOP' ? 'selected' : '' %> value="DESKTOP">DESKTOP</option>
+                            <option <%= data.estado_equipo=='CELULAR' ? 'selected' : '' %> value="CELULAR">CELULAR</option>
+                            <option <%= data.estado_equipo=='RADIO' ? 'selected' : '' %> value="RADIO">RADIO</option>
+                            <option <%= data.estado_equipo=='MOUSE' ? 'selected' : '' %> value="MOUSE">MOUSE</option>
+                            <option <%= data.estado_equipo=='TECLADO' ? 'selected' : '' %> value="TECLADO">TECLADO</option>
+                            <option <%= data.estado_equipo=='MONITOR' ? 'selected' : '' %> value="MONITOR">MONITOR</option>
+                            <option <%= data.estado_equipo=='OTRO' ? 'selected' : '' %> value="OTRO">OTRO</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="marca_equipo">MARCA: <span class="required">*</span></label>
+                        <input type="text" name="marca" id="marca_equipo" value="<%= data.marca %>">
+                    </div>
+                    <div>
+                        <label for="modelo_equipo">MODELO: <span class="required">*</span></label>
+                        <input type="text" name="modelo" id="modelo_equipo" value="<%= data.modelo %>">
+                    </div>
+                    <div>
+                        <label for="no_serie">NÚMERO DE SERIE: <span class="required">*</span></label>
+                        <input type="text" name="no_serie" id="no_serie" value="<%= data.no_serie %>">
+                    </div>
+                    <div>
+                        <label for="sistema_operativo">SISTEMA OPERATIVO:</label>
+                        <input type="text" name="sistema_operativo" id="sistema_operativo" value="<%= data.sistema_operativo %>">
+                    </div>
+                    <div>
+                        <label for="propietario_equipo">PROPIETARIO:</label>
+                        <input type="text" name="propietario" id="propietario_equipo" value="<%= data.propietario %>">
+                    </div>
+                    <div>
+                        <label for="linea_telefonica">LINEA TELEFÓNICA:</label>
+                        <input type="text" name="linea_telefonica" id="linea_telefonica" value="<%= data.linea_telefonica %>">
+                    </div>
+                    <div>
+                        <label for="pin_equipo">PIN:</label>
+                        <input type="text" name="pin" id="pin_equipo" value="<%= data.pin %>">
+                    </div>
+                    <div>
+                        <label for="imei_equipo">IMEI:</label>
+                        <input type="text" name="imei" id="imei_equipo" value="<%= data.imei %>">
+                    </div>
+                    <div>
+                        <label for="cuenta_google">CUENTA GOOGLE:</label>
+                        <input type="text" name="cuenta_google" id="cuenta_google" value="<%= data.cuenta_google %>">
+                    </div>
+                    <div>
+                        <label for="pass">CONTRASEÑA DE LA CUENTA:</label>
+                        <input type="text" name="password_cuenta" id="pass" value="<%= data.password_cuenta %>">
+                    </div>
+                    <div>
+                        <label for="fecha_compra">FECHA COMPRA:</label>
+                        <input type="date" name="fecha_compra" id="fecha_compra">
+                    </div>
+                    <div>
+                        <label for="fecha_renovacion">FECHA RENOVACIÓN:</label>
+                        <input type="date" name="fecha_renovacion" id="fecha_renovacion">
+                    </div>
+                    <div>
+                        <label for="estado_equipo">ESTADO EQUIPO</label>
+                        <select name="estado_equipo" id="estado_equipo">
+                            <option <%= data.estado_equipo=='1' ? 'selected' : '' %> value="1">ACTIVO</option>
+                            <option <%= data.estado_equipo=='0' ? 'selected' : '' %> value="0">BAJA</option>
+                        </select>
+                    </div>
+                    <div class="guardar-box-equipo">
+                        <button type="submit" class="guardar-equipo">ACTUALIZAR</button>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fechaCompra = '<%= data.fecha_compra %>';
+            const fechaRenovacion = '<%= data.fecha_renovacion %>';
+
+            const formatToYYYYMMDD = (date) => {
+                const [day, month, year] = date.split('-');
+                return `${year}-${month}-${day}`;
+            };
+            
+            if (fechaCompra) {
+                document.getElementById('fecha_compra').value = formatToYYYYMMDD(fechaCompra);
+            }
+
+            if (fechaRenovacion) {
+                document.getElementById('fecha_renovacion').value = formatToYYYYMMDD(fechaRenovacion);
+            }
+        });
+    </script>
+</body>
+</html>

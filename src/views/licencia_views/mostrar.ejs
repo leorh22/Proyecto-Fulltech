@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>    
+    <header>
+        <%- include("../templates/header") %>
+    </header>
+    <main>
+        <div class="big-box">
+            <%- include("../templates/menu") %>
+            <div class="simple-box">
+                <div class="barra-acciones">
+                    <div class="barra-busqueda">
+                        <input type="search" name="buscar" id="barra-buscar" placeholder="Buscar">
+                    </div>
+                    <a href="/nuevaLicencia"><button type="button" class="btn-agregar">Agregar <span class="material-symbols-outlined">add</span></button></a>
+                </div>
+                <div class="tablas">
+                    <table>
+                            <th># ITEM</th>
+                            <th>NOMBRE</th>
+                            <th>TIPO DE LICENCIA</th>
+                            <th>FECHA DE COMPRA</th>
+                            <th>FECHA DE RENOVACIÓN</th>
+                            <th>PROVEEDOR</th>
+                            <th>EQUIPO ASIGNADO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                        <tbody id="tabla-licencia">
+                            <% if(licenciaData.length !== 0){ %>
+                                <% licenciaData.forEach(function(data, index){ %>
+                                    <tr>
+                                        <td style="font-weight: bold;"><%= index + 1 %></td>
+                                        <td><%= data.nombre %></td>
+                                        <td><%= data.tipo_licencia %></td>
+                                        <td><%= data.fecha_compra %></td>
+                                        <td><%= data.fecha_renovacion %></td>
+                                        <td><%= data.proveedor %></td>
+                                        <td><%= data.no_serie %></td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <a href="/detallesLicencia/<%= data.id_licencia %>"><button class="action-btn ver-btn"><span class="material-symbols-outlined">visibility</span></button></a> 
+                                                <a href="/editarLicencia/<%= data.id_licencia %>"><button class="action-btn editar-btn"><span class="material-symbols-outlined">border_color</span></button></a>
+                                                <a onclick="confirmar(<%= data.id_licencia %>)"><button class="action-btn eliminar-btn"><span class="material-symbols-outlined">delete</span></button></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <% }); %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="7">No Data Found</td>
+                                    </tr>
+                                <% } %>
+                        </tbody>    
+                    </table>
+                </div>
+            </div>
+        </div>             
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('barra-buscar');
+            const tableRows = document.querySelectorAll('#tabla-licencia tr');
+        
+            searchInput.addEventListener('input', () => {
+                const filter = searchInput.value.toUpperCase();
+        
+                tableRows.forEach(row => {
+                    const cells = row.getElementsByTagName('td');
+                    let matches = false;
+        
+                    for (let i = 0; i < cells.length; i++) {
+                        if (i === cells.length - 1) {
+                            // Excluir la última columna (acciones)
+                            continue;
+                        }
+                        if (cells[i]) {
+                            const cellText = cells[i].innerText.toUpperCase();
+                            const matchIndex = cellText.indexOf(filter);
+        
+                            if (matchIndex !== -1) {
+                                matches = true;
+                                const originalText = cells[i].innerText;
+                                const highlightedText = originalText.substring(0, matchIndex) +
+                                                        '<span class="highlight">' + originalText.substring(matchIndex, matchIndex + filter.length) + '</span>' +
+                                                        originalText.substring(matchIndex + filter.length);
+                                cells[i].innerHTML = highlightedText;
+                            } else {
+                                // Si no hay coincidencia, elimina cualquier marcado previo
+                                cells[i].innerHTML = cells[i].innerText;
+                            }
+                        }
+                    }
+        
+                    if (matches) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        .highlight {
+            background-color: #FFFF00;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function confirmar(id){
+            Swal.fire({
+                title: "¿Eliminar el registro?",
+                text: "Esta acción no se puede revertir",
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonColor: '#dc1816',
+                cancelButtonText: "Cancelar",
+                confirmButtonColor: '#005a9e',
+                confirmButtonText: "Eliminar",
+                allowOutsideClick: true,
+                allowEnterKey: true,
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '/eliminarLicencia/'+id;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo dispositivo</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="/icons/fulltech-logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="site-nuevo-page">
+        <div class="site-nuevo-form">
+            <div class="exit-site-button">
+                <a href="/site"><span class="material-symbols-outlined" style="font-size: 30px;">close</span></a>
+            </div>
+            <div class="site-form">
+                <form action="/insertarDatosSite" method="post">
+                    <div>
+                        <label for="">DISPOSITIVO: <span class="required">*</span></label>
+                        <input type="text" name="disp" id="disp" placeholder="DISPOSITIVO">
+                    </div>
+                    <div>
+                        <label for="">TIPO DE DISPOSITIVO: <span class="required">*</span></label>
+                        <input type="text" name="tipo_disp" id="tipo_disp" placeholder="TIPO DE DISPOSITIVO">
+                    </div>
+                    <div>
+                        <label for="">MARCA: <span class="required">*</span></label>
+                        <input type="text" name="marca_disp" id="marca_disp" placeholder="MARCA DEL DISPOSITIVO" required>
+                    </div>
+                    <div>
+                        <label for="">MODELO: <span class="required">*</span></label>
+                        <input type="text" name="modelo_disp" id="modelo_disp" placeholder="MODELO DEL DISPOSITIVO">
+                    </div>
+                    <div>
+                        <label for="">NÚMERO DE SERIE: <span class="required">*</span></label>
+                        <input type="text" name="num_serie" id="num_serie" placeholder="NÚMERO DE SERIE">
+                    </div>
+                    <div>
+                        <label for="">ESTADO DEL DISPOSITIVO:</label>
+                        <select name="estado_disp" id="estado_disp">
+                            <option value="1">ACTIVO</option>
+                            <option value="0">BAJA</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">COMENTARIO:</label>
+                        <input type="text" name="comentario_disp" id="comentario_disp" placeholder="COMENTARIO">
+                    </div>
+                    <div>
+                        <div class="site-guardar-button">
+                            <button type="submit">GUARDAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
